@@ -4,8 +4,6 @@
 #include "globals.h"
 
 QT_CHARTS_USE_NAMESPACE
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -19,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect( Connection_Menager , SIGNAL(emit_Vetors(QList<QVector3D>)),   this, SLOT(recive_vector(QList<QVector3D>)));
     connect( this , SIGNAL(chose_Vector(int)),   Connection_Menager, SLOT(decide_vector(int)));
-    connect( ui->ConnectpushButton, SIGNAL(clicked()), this, SLOT(on_pushButtonConnect_pressed()));
 
 
     Connection_Menager->start();
@@ -77,14 +74,13 @@ void MainWindow::Chart(char axis, QtCharts::QChartView *ChartWindow)
     ChartWindow->setChart(chart);
 }
 
+/*!
+ * \brief Dekonstrukor wywoływany przy wyjściu z programu
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-const char *MainWindow::BoolToString(bool b)
-{
-      return b ? "true" : "false";
+    delete Connection_Menager;
 }
 
 
@@ -92,56 +88,9 @@ void MainWindow::on_ChartChange_clicked()
 {
     ChartMode = (ChartMode+1)%3;
     emit chose_Vector(ChartMode);
-    //Glob.SetRotation(QVector3D(ChartMode*45, 0, 0));
 }
 
-void MainWindow::on_pushButtonConnect_pressed()
-{
-
-    QString message = QString(BoolToString(connection));
-
-    if (connection == true)
-        connection = false;
-    else
-        connection = true;
-}
-
-
-// co za potwór... UGH!!!
-void MainWindow::addToLogs(QString message)
-{
-    QString x = message;
-    /*
-    QString currentDateTime = QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss");
-    QString CurrentDouble = "x";
-    QString CurrentMessage = "x";
-
-    QString x = message;
-
-    ///// Inside Threading
-    if (ToPCV.ReciveFullMessage()<0)
-    {
-        this->close();
-        return;
-    }
-
-    for (int i=0;i<ToPCV.lenght;i++)
-    {
-        CurrentDouble = QString::number(ToPCV.GetDouble(i));
-        CurrentMessage = QString::number(ToPCV.messageCnt);
-
-        ui->Log->append(currentDateTime + "\t" + CurrentDouble + "\t" + CurrentMessage);
-    }
-
-    //bierz pierwsze 3 liczby z danego połączenia, wpisz do wektora i zapamiętaj w Pos (część Klasy mainwindow)
-    Pos << QVector3D(ToPCV.GetDouble(0),ToPCV.GetDouble(1),ToPCV.GetDouble(2));
-
-    Chart('X', ui->Chartx);
-    Chart('Y', ui->Charty);
-    Chart('Z', ui->Chartz);
-*/}
-
-QVector3D MainWindow::GetLatLog()
+QVector3D MainWindow::GetLastLog()
 {
     return Pos.last();
 }

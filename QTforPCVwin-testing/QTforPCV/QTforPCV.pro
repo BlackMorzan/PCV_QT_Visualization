@@ -19,7 +19,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Circle.cpp \
     CustomConn.cpp \
     Threading.cpp \
     Viewer.cpp \
@@ -28,7 +27,6 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    Circle.h \
     CustomConn.h \
     Threading.h \
     Viewer.h \
