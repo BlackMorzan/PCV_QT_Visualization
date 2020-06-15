@@ -1,0 +1,5 @@
+<map id="CustomConn::ReciveMessage" name="CustomConn::ReciveMessage">
+<area shape="rect" id="node2" href="$_custom_conn_8h.html#a8c397caca29f6f6261bc32ab57974cf4" title="hex" alt="" coords="345,5,387,32"/>
+<area shape="rect" id="node3" href="$class_custom_conn.html#a835f7cadaa5e2bd2345ce9fc005715e5" title="metoda odczytuje wartość intiger z widomości " alt="" coords="265,57,467,98"/>
+<area shape="rect" id="node4" href="$class_custom_conn.html#a6fd79ef68ea1d968dc69d4677a22c612" title="Metoda dekoduje widomość z portu, sprawdza, czy jest poprawna i odbiera przesłane wartości..." alt="" coords="255,123,477,149"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="CustomConn::GetDouble" name="CustomConn::GetDouble">
+<area shape="rect" id="node2" href="$classthr___connection___menager.html#a19fc492345962c58937d3517f0bd80c4" title="Metoda dodaje nowe wartości do 3 list wektorów 3D. " alt="" coords="223,5,389,47"/>
+<area shape="rect" id="node3" href="$classthr___connection___menager.html#aa107b54444c647edf554aae512968767" title="Tu jest inicjowane połączenie, a później w pętli pobierane nowe wiadomości. " alt="" coords="437,13,631,39"/>
+</map>
