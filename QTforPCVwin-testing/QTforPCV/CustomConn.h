@@ -24,8 +24,8 @@ using namespace std;
 /*!
  * \brief Obsługa połączenia między aplikacjami
  *
- * Klasy CustomConn obługuje połącznie
- * między tą aplikają, a PCV
+ * Klasa CustomConn obługuje połącznie między tą aplikają, a aplikacją PCV w standardzie UDP.
+ * Ponad to tworzy środowisko, w którym utrzymywane są informacje na teamt odbieranych wiadomości.
  */
 class CustomConn
 {
@@ -51,32 +51,42 @@ public:
     * Metoda ustanawia połączenie z aplikają PCV,
     * opróżnia bufor z wybranego portu i wysyła "handshake"
     *
-    * \return int o wartości 0 dla poprawnego działania,
-    * dla błędów wartośc ujemna
+    * \return 0 dla poprawnego działania
+    * \return <0 dla błędów
     */
     int Init();
 
     /*!
-     * \brief Odbiera serię znaków
+     * \brief Odbiera wiadmość tekstową od aplikacji PCV
      *
      * \deprecated Metoda jest przestarzała i niewykorzystywana
-     * w tej iteracji
+     * w tej iteracji ponieważ aplikacja PCV przesyłała wiadomości tylko w ramach testów
      *
-     * \return zwraca serię znaków z bufora portu
+     * \return zwraca odebraną wiadomość tekstową
      */
     string ReciveString();
 
     /*!
      * \brief Metoda dekoduje widomość z portu, sprawdza, czy jest poprawna i odbiera przesłane wartości
-     * \return int o wartości 0 dla poprawnego działania,
-     * dla błędów wartośc ujemna
+     *
+     * Metoda wykonuje \link CustomConn::ReciveMessageCount \endlink i \link CustomConn::IsMessage \endlink, a następnie
+     * zapisuje odebrbane wartości do \link CustomConn::RecivedDouble \endlink
+     *
+     * \return Zwraca 0 jeśli wszystkie wartości zostały przesłane
+     * \return Zwraca <0 jeśli widomość ma złą formę
      */
     int ReciveFullMessage();
 
     /*!
-     * \brief Metoda zwraca jedną z oddczytanych wartości
-     * \param i oznacza, która ze zmiennych ma zostać odczytana
-     * \return odczytana wartość typu double
+     * \brief Metoda zwraca wybraną jedną z wartości zapisanych w \link CustomConn::RecivedDouble \endlink
+     *
+     * \param[in] i - liczba określająca, która wartość z tablicy ma zostać wysłana
+     *
+     * Metoda wydobywa wartości zapisane w tablicy \link CustomConn::RecivedDouble \endlink przez
+     * \link CustomConn::ReciveFullMessage \endlink w tej fazie wartości są nieuporządkowane i są to składowe
+     * wektora dotyczącego pozycji, następnie prędkości, później orientatcji w kolejności x, y, z
+     *
+     * \return odczytana wartość z tablicy opisująca jeden z parametrów robota
      */
     double GetDouble(int i);
 
@@ -96,27 +106,29 @@ private:
 
 
     /*!
-     * \brief metoda sprawdza, kiedy rozpoczyna się i kończy wiadomość
-     * \return zwraca 1, kiedy wykryje nagłówek. 2 gdy wykryje stopkę, -1, jeśli żadne z powyższych
+     * \brief Metoda sprawdza, kiedy rozpoczyna się i kończy wiadomość
+     *
+     * \return Zwraca 1, kiedy wykryje nagłówek
+     * \return 2 gdy wykryje stopkę
+     * \return -1, jeśli żadne z powyższych
      */
     int IsMessage();
 
     /*!
-     * \brief metoda odczytuje wartość intiger z widomości
+     * \brief Metoda odczytuje liczby całkowie z widomości
      *
-     * metoda jest używana do odczytywania ile wartości zmiennoprzecinkowych pojawi się we wiadomości i
-     * numeru wiadmości.
+     * Metoda odczytuje ile liczb zmiennoprzecinkowych pojawi się we wiadomości
      *
-     * \return zwracana jest wartość odczytaną z wiadomości
+     * \return Zwracana jest ilość liczb w wiadomości
      */
     int ReciveMessageCount();
 
     /*!
-     * \brief metoda służy do przesyłania wiadmości tekstowej do aplikacji PCV
+     * \brief Metoda służy do przesyłania wiadmości tekstowej do aplikacji PCV
      *
-     * \param Łańcuch znaków, który ma zostać przesłany
+     * \param Wiadmość jaka zostanie przesłana do aplikacji PCV
      */
-    void Send(string Message);
+    void Send(const string Message);
 
 
 };

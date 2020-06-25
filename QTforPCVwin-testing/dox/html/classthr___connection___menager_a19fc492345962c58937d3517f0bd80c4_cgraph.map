@@ -1,4 +1,4 @@
 <map id="thr_Connection_Menager::NewLog" name="thr_Connection_Menager::NewLog">
 <area shape="rect" id="node2" href="$class_custom_conn.html#a6fd79ef68ea1d968dc69d4677a22c612" title="Metoda dekoduje widomość z portu, sprawdza, czy jest poprawna i odbiera przesłane wartości..." alt="" coords="220,5,443,32"/>
-<area shape="rect" id="node3" href="$class_custom_conn.html#a3bfcef5c0cced1664a70e2f45931706f" title="Metoda zwraca jedną z oddczytanych wartości. " alt="" coords="247,56,416,83"/>
+<area shape="rect" id="node3" href="$class_custom_conn.html#a3bfcef5c0cced1664a70e2f45931706f" title="Metoda zwraca wybraną jedną z wartości zapisanych w CustomConn::RecivedDouble. " alt="" coords="247,56,416,83"/>
 </map>

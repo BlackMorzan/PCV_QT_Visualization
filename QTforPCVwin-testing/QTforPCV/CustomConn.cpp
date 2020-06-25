@@ -45,7 +45,7 @@ int CustomConn::Init()
     return 0;
 }
 
-void CustomConn::Send(string Message)
+void CustomConn::Send(const string Message)
 {
     send(sock, Message.c_str(), Message.size(), 0);
     cout << "Message Send\n" << endl;

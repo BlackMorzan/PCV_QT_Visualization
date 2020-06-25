@@ -9,6 +9,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Visualization_for_PCV
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.1</span>
    </div>
    <div id="projectbrief">PCVViz</div>
   </td>
@@ -44,6 +51,21 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_custom_conn.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -58,7 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -86,13 +107,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae60734e886ad361449be3c9e54998890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicjalizuje połączenie z aplikacją PCV.  <a href="#ae60734e886ad361449be3c9e54998890">More...</a><br /></td></tr>
 <tr class="separator:ae60734e886ad361449be3c9e54998890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e8e8bff62d2cf8b4d0e86ca3dfab9af"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_conn.html#a3e8e8bff62d2cf8b4d0e86ca3dfab9af">ReciveString</a> ()</td></tr>
-<tr class="memdesc:a3e8e8bff62d2cf8b4d0e86ca3dfab9af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odbiera serię znaków.  <a href="#a3e8e8bff62d2cf8b4d0e86ca3dfab9af">More...</a><br /></td></tr>
+<tr class="memdesc:a3e8e8bff62d2cf8b4d0e86ca3dfab9af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odbiera wiadmość tekstową od aplikacji PCV.  <a href="#a3e8e8bff62d2cf8b4d0e86ca3dfab9af">More...</a><br /></td></tr>
 <tr class="separator:a3e8e8bff62d2cf8b4d0e86ca3dfab9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fd79ef68ea1d968dc69d4677a22c612"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_conn.html#a6fd79ef68ea1d968dc69d4677a22c612">ReciveFullMessage</a> ()</td></tr>
 <tr class="memdesc:a6fd79ef68ea1d968dc69d4677a22c612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda dekoduje widomość z portu, sprawdza, czy jest poprawna i odbiera przesłane wartości.  <a href="#a6fd79ef68ea1d968dc69d4677a22c612">More...</a><br /></td></tr>
 <tr class="separator:a6fd79ef68ea1d968dc69d4677a22c612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bfcef5c0cced1664a70e2f45931706f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_conn.html#a3bfcef5c0cced1664a70e2f45931706f">GetDouble</a> (int i)</td></tr>
-<tr class="memdesc:a3bfcef5c0cced1664a70e2f45931706f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda zwraca jedną z oddczytanych wartości.  <a href="#a3bfcef5c0cced1664a70e2f45931706f">More...</a><br /></td></tr>
+<tr class="memdesc:a3bfcef5c0cced1664a70e2f45931706f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda zwraca wybraną jedną z wartości zapisanych w <a class="el" href="class_custom_conn.html#a2ce4a5667364510d33f70deff8d61325">CustomConn::RecivedDouble</a>.  <a href="#a3bfcef5c0cced1664a70e2f45931706f">More...</a><br /></td></tr>
 <tr class="separator:a3bfcef5c0cced1664a70e2f45931706f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae60734e886ad361449be3c9e54998890"><td class="memItemLeft" align="right" valign="top"><a id="ae60734e886ad361449be3c9e54998890"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
@@ -118,14 +139,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a148f5076144c26004cd5639e8510ec9f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_conn.html#a148f5076144c26004cd5639e8510ec9f">IsMessage</a> ()</td></tr>
-<tr class="memdesc:a148f5076144c26004cd5639e8510ec9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">metoda sprawdza, kiedy rozpoczyna się i kończy wiadomość  <a href="#a148f5076144c26004cd5639e8510ec9f">More...</a><br /></td></tr>
+<tr class="memdesc:a148f5076144c26004cd5639e8510ec9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda sprawdza, kiedy rozpoczyna się i kończy wiadomość  <a href="#a148f5076144c26004cd5639e8510ec9f">More...</a><br /></td></tr>
 <tr class="separator:a148f5076144c26004cd5639e8510ec9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a835f7cadaa5e2bd2345ce9fc005715e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_conn.html#a835f7cadaa5e2bd2345ce9fc005715e5">ReciveMessageCount</a> ()</td></tr>
-<tr class="memdesc:a835f7cadaa5e2bd2345ce9fc005715e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">metoda odczytuje wartość intiger z widomości  <a href="#a835f7cadaa5e2bd2345ce9fc005715e5">More...</a><br /></td></tr>
+<tr class="memdesc:a835f7cadaa5e2bd2345ce9fc005715e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda odczytuje liczby całkowie z widomości.  <a href="#a835f7cadaa5e2bd2345ce9fc005715e5">More...</a><br /></td></tr>
 <tr class="separator:a835f7cadaa5e2bd2345ce9fc005715e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a573cc4e960efa875981c6ae91216b27b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_conn.html#a573cc4e960efa875981c6ae91216b27b">Send</a> (string Message)</td></tr>
-<tr class="memdesc:a573cc4e960efa875981c6ae91216b27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">metoda służy do przesyłania wiadmości tekstowej do aplikacji PCV  <a href="#a573cc4e960efa875981c6ae91216b27b">More...</a><br /></td></tr>
-<tr class="separator:a573cc4e960efa875981c6ae91216b27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff278f436a607e97208e0989be46d594"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_custom_conn.html#aff278f436a607e97208e0989be46d594">Send</a> (const string Message)</td></tr>
+<tr class="memdesc:aff278f436a607e97208e0989be46d594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda służy do przesyłania wiadmości tekstowej do aplikacji PCV.  <a href="#aff278f436a607e97208e0989be46d594">More...</a><br /></td></tr>
+<tr class="separator:aff278f436a607e97208e0989be46d594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf0284f0b0f1c84ddf283bbead4355d6"><td class="memItemLeft" align="right" valign="top"><a id="abf0284f0b0f1c84ddf283bbead4355d6"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ReciveMessage</b> ()</td></tr>
 <tr class="separator:abf0284f0b0f1c84ddf283bbead4355d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,7 +170,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Obsługa połączenia między aplikacjami. </p>
-<p>Klasy <a class="el" href="class_custom_conn.html" title="Obsługa połączenia między aplikacjami. ">CustomConn</a> obługuje połącznie między tą aplikają, a PCV </p>
+<p>Klasa <a class="el" href="class_custom_conn.html" title="Obsługa połączenia między aplikacjami. ">CustomConn</a> obługuje połącznie między tą aplikają, a aplikacją PCV w standardzie UDP. Ponad to tworzy środowisko, w którym utrzymywane są informacje na teamt odbieranych wiadomości. </p>
 
 <p class="definition">Definition at line <a class="el" href="_custom_conn_8h_source.html#l00030">30</a> of file <a class="el" href="_custom_conn_8h_source.html">CustomConn.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -169,14 +190,15 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
       </table>
 </div><div class="memdoc">
 
-<p>Metoda zwraca jedną z oddczytanych wartości. </p>
+<p>Metoda zwraca wybraną jedną z wartości zapisanych w <a class="el" href="class_custom_conn.html#a2ce4a5667364510d33f70deff8d61325">CustomConn::RecivedDouble</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>oznacza, która ze zmiennych ma zostać odczytana </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>- liczba określająca, która wartość z tablicy ma zostać wysłana</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>odczytana wartość typu double </dd></dl>
+<p>Metoda wydobywa wartości zapisane w tablicy <a class="el" href="class_custom_conn.html#a2ce4a5667364510d33f70deff8d61325">CustomConn::RecivedDouble</a> przez <a class="el" href="class_custom_conn.html#a6fd79ef68ea1d968dc69d4677a22c612">CustomConn::ReciveFullMessage</a> w tej fazie wartości są nieuporządkowane i są to składowe wektora dotyczącego pozycji, następnie prędkości, później orientatcji w kolejności x, y, z</p>
+<dl class="section return"><dt>Returns</dt><dd>odczytana wartość z tablicy opisująca jeden z parametrów robota </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_custom_conn_8cpp_source.html#l00158">158</a> of file <a class="el" href="_custom_conn_8cpp_source.html">CustomConn.cpp</a>.</p>
 <div class="dynheader">
@@ -208,7 +230,9 @@ Here is the caller graph for this function:</div>
 
 <p>Inicjalizuje połączenie z aplikacją PCV. </p>
 <p>Metoda ustanawia połączenie z aplikają PCV, opróżnia bufor z wybranego portu i wysyła "handshake"</p>
-<dl class="section return"><dt>Returns</dt><dd>int o wartości 0 dla poprawnego działania, dla błędów wartośc ujemna </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 dla poprawnego działania </dd>
+<dd>
+&lt;0 dla błędów </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_custom_conn_8cpp_source.html#l00009">9</a> of file <a class="el" href="_custom_conn_8cpp_source.html">CustomConn.cpp</a>.</p>
 <div class="dynheader">
@@ -245,8 +269,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>metoda sprawdza, kiedy rozpoczyna się i kończy wiadomość </p>
-<dl class="section return"><dt>Returns</dt><dd>zwraca 1, kiedy wykryje nagłówek. 2 gdy wykryje stopkę, -1, jeśli żadne z powyższych </dd></dl>
+<p>Metoda sprawdza, kiedy rozpoczyna się i kończy wiadomość </p>
+<dl class="section return"><dt>Returns</dt><dd>Zwraca 1, kiedy wykryje nagłówek </dd>
+<dd>
+2 gdy wykryje stopkę </dd>
+<dd>
+-1, jeśli żadne z powyższych </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_custom_conn_8cpp_source.html#l00072">72</a> of file <a class="el" href="_custom_conn_8cpp_source.html">CustomConn.cpp</a>.</p>
 
@@ -268,7 +296,10 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Metoda dekoduje widomość z portu, sprawdza, czy jest poprawna i odbiera przesłane wartości. </p>
-<dl class="section return"><dt>Returns</dt><dd>int o wartości 0 dla poprawnego działania, dla błędów wartośc ujemna </dd></dl>
+<p>Metoda wykonuje <a class="el" href="class_custom_conn.html#a835f7cadaa5e2bd2345ce9fc005715e5">CustomConn::ReciveMessageCount</a> i <a class="el" href="class_custom_conn.html#a148f5076144c26004cd5639e8510ec9f">CustomConn::IsMessage</a>, a następnie zapisuje odebrbane wartości do <a class="el" href="class_custom_conn.html#a2ce4a5667364510d33f70deff8d61325">CustomConn::RecivedDouble</a></p>
+<dl class="section return"><dt>Returns</dt><dd>Zwraca 0 jeśli wszystkie wartości zostały przesłane </dd>
+<dd>
+Zwraca &lt;0 jeśli widomość ma złą formę </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_custom_conn_8cpp_source.html#l00118">118</a> of file <a class="el" href="_custom_conn_8cpp_source.html">CustomConn.cpp</a>.</p>
 <div class="dynheader">
@@ -306,9 +337,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>metoda odczytuje wartość intiger z widomości </p>
-<p>metoda jest używana do odczytywania ile wartości zmiennoprzecinkowych pojawi się we wiadomości i numeru wiadmości.</p>
-<dl class="section return"><dt>Returns</dt><dd>zwracana jest wartość odczytaną z wiadomości </dd></dl>
+<p>Metoda odczytuje liczby całkowie z widomości. </p>
+<p>Metoda odczytuje ile liczb zmiennoprzecinkowych pojawi się we wiadomości</p>
+<dl class="section return"><dt>Returns</dt><dd>Zwracana jest ilość liczb w wiadomości </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_custom_conn_8cpp_source.html#l00100">100</a> of file <a class="el" href="_custom_conn_8cpp_source.html">CustomConn.cpp</a>.</p>
 
@@ -329,16 +360,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Odbiera serię znaków. </p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>Metoda jest przestarzała i niewykorzystywana w tej iteracji</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>zwraca serię znaków z bufora portu </dd></dl>
+<p>Odbiera wiadmość tekstową od aplikacji PCV. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>Metoda jest przestarzała i niewykorzystywana w tej iteracji ponieważ aplikacja PCV przesyłała wiadomości tylko w ramach testów</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>zwraca odebraną wiadomość tekstową </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_custom_conn_8cpp_source.html#l00056">56</a> of file <a class="el" href="_custom_conn_8cpp_source.html">CustomConn.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a573cc4e960efa875981c6ae91216b27b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a573cc4e960efa875981c6ae91216b27b">&#9670;&nbsp;</a></span>Send()</h2>
+<a id="aff278f436a607e97208e0989be46d594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff278f436a607e97208e0989be46d594">&#9670;&nbsp;</a></span>Send()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +380,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">int CustomConn::Send </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string&#160;</td>
           <td class="paramname"><em>Message</em></td><td>)</td>
           <td></td>
         </tr>
@@ -361,10 +392,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>metoda służy do przesyłania wiadmości tekstowej do aplikacji PCV </p>
+<p>Metoda służy do przesyłania wiadmości tekstowej do aplikacji PCV. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Łańcuch</td><td>znaków, który ma zostać przesłany </td></tr>
+    <tr><td class="paramname">Wiadmość</td><td>jaka zostanie przesłana do aplikacji PCV </td></tr>
   </table>
   </dd>
 </dl>
@@ -380,11 +411,15 @@ Here is the caller graph for this function:</div>
 <li>QTforPCV/<a class="el" href="_my_client2_8cpp_source.html">MyClient2.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_custom_conn.html">CustomConn</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

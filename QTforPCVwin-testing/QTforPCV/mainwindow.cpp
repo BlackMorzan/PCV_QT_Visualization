@@ -61,7 +61,14 @@ void MainWindow::Chart(char axis, QtCharts::QChartView *ChartWindow)
     font.setPixelSize(12);
     chart->setTitleFont(font);
     chart->setTitleBrush(QBrush(Qt::black));
+
     QString Title = "Position ";
+
+    if (ChartMode == 1)
+        Title = "Velocity ";
+    if (ChartMode == 2)
+        Title = "Orientation ";
+
     chart->setTitle(Title + axis);
 
     // Change the line color and weight

@@ -3,5 +3,5 @@
 <area shape="rect" id="node3" href="$classthr___connection___menager.html#a19fc492345962c58937d3517f0bd80c4" title="Metoda dodaje nowe wartości do 3 list wektorów 3D. " alt="" coords="247,57,413,98"/>
 <area shape="rect" id="node6" href="$class_globals.html#a7e6725a6b01d60dd9989531fa9db0f1b" title="Setter dla kąta. " alt="" coords="259,123,401,149"/>
 <area shape="rect" id="node4" href="$class_custom_conn.html#a6fd79ef68ea1d968dc69d4677a22c612" title="Metoda dekoduje widomość z portu, sprawdza, czy jest poprawna i odbiera przesłane wartości..." alt="" coords="461,39,684,65"/>
-<area shape="rect" id="node5" href="$class_custom_conn.html#a3bfcef5c0cced1664a70e2f45931706f" title="Metoda zwraca jedną z oddczytanych wartości. " alt="" coords="488,89,657,116"/>
+<area shape="rect" id="node5" href="$class_custom_conn.html#a3bfcef5c0cced1664a70e2f45931706f" title="Metoda zwraca wybraną jedną z wartości zapisanych w CustomConn::RecivedDouble. " alt="" coords="488,89,657,116"/>
 </map>
