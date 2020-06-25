@@ -16,7 +16,7 @@ Finalnie aplikacje komunikują się za pomocą protokołu TCP, gdzie aplikacja P
 
 # ScreenShots
 
-![SCR1](https://github.com/BlackMorzan/PCV_QT_Visualization/QTforPCVwin-testing/SS_QTfor_PCV/Screenshot_QT_1.png)
-![SCR2](https://github.com/BlackMorzan/PCV_QT_Visualization/QTforPCVwin-testing/SS_QTfor_PCV/Screenshot_QT_2.png)
-![SCR3](https://github.com/BlackMorzan/PCV_QT_Visualization/QTforPCVwin-testing/SS_QTfor_PCV/Screenshot_QT_3.png)
+![SCR1](https://github.com/BlackMorzan/PCV_QT_Visualization/blob/master/QTforPCVwin-testing/SS_QTfor_PCV/Screenshot_QT_1.png)
+![SCR2](https://github.com/BlackMorzan/PCV_QT_Visualization/blob/master/QTforPCVwin-testing/SS_QTfor_PCV/Screenshot_QT_2.png)
+![SCR3](https://github.com/BlackMorzan/PCV_QT_Visualization/blob/master/QTforPCVwin-testing/SS_QTfor_PCV/Screenshot_QT_3.png)
 
